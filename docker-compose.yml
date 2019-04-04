@@ -1,0 +1,15 @@
+# (c) Copyright 2019, Pongsakorn Ritrugsa <poundxi@protonmail.com>
+# This project is licensed under the terms of the MIT license.
+
+version: '2'
+
+services:
+  ubuntu-basic:
+    build:
+      context: .
+      args:
+        ubuntu_timezone: "Asia/Bangkok"
+        php_version: "7.3"
+        mariadb_repo_url: "http://sgp1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu"
+        mariadb_root_passwd: "toor"
+    image: poundxi/ubuntu-laravel:latest
