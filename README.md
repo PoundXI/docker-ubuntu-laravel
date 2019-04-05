@@ -9,6 +9,7 @@ Build a custom Ubuntu image for Laravel development.
  - Install less command (easy to use than more command)
  - Install networking tools (wget + curl)
  - Install development tools (git + zip)
+ - Install screen manager
  - Install VIM editor with custom configuration file
  - Install LEMP Stack (Nginx + MariaDB + PHP) with PHP modules requires by Laravel
  - Install Redis server (caching & session server)
