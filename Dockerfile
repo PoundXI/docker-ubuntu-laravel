@@ -10,6 +10,7 @@
 #   - Install less command (easy to use than more command)
 #   - Install networking tools (wget + curl)
 #   - Install development tools (git + zip)
+#   - Install screen manager
 #   - Install VIM editor with custom configuration file
 #   - Install LEMP Stack (Nginx + MariaDB + PHP) with PHP modules requires by Laravel
 #   - Install Redis server (caching & session server)
@@ -77,7 +78,11 @@ RUN \
     # Install PHP modules requires by laravel
     php${php_version}-mbstring php${php_version}-xml \
     # Install Redis server (caching & session server)
-    redis-server ; \
+    redis-server \
+    # Install screen manager
+    screen ; \
+    # Make screen default shell to bash
+    echo "defshell -bash" > /root/.screenrc ; \
     # Clean retrieved package files and remove no longer needed packages
     apt clean -y && apt autoremove -y
 
