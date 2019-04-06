@@ -7,7 +7,7 @@ Build a custom Ubuntu image for Laravel development.
  - Make APT auto select mirrors
  - Install gnupg it's require for apt-key command
  - Install less command (easy to use than more command)
- - Install networking tools (wget + curl)
+ - Install networking tools (net-tools + wget + curl)
  - Install development tools (git + zip)
  - Install screen manager
  - Install VIM editor with custom configuration file

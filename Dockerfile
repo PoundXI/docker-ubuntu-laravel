@@ -8,7 +8,7 @@
 #   - Make APT auto select mirrors
 #   - Install gnupg it's require for apt-key command
 #   - Install less command (easy to use than more command)
-#   - Install networking tools (wget + curl)
+#   - Install networking tools (net-tools + wget + curl)
 #   - Install development tools (git + zip)
 #   - Install screen manager
 #   - Install VIM editor with custom configuration file
@@ -70,17 +70,19 @@ RUN \
     # Install less command
     less \
     # Install networking tools
-    wget curl \
+    net-tools wget curl \
     # Install development tools
     vim git zip \
     # Install LEMP Stack (Nginx + MariaDB + PHP)
     nginx mariadb-server php${php_version}-fpm php${php_version}-mysql \
     # Install PHP modules requires by laravel
-    php${php_version}-mbstring php${php_version}-xml \
+    php${php_version}-mbstring php${php_version}-xml ; \
     # Install Redis server (caching & session server)
-    redis-server \
+    apt install -y redis-server ; \
+    # Fix redis service not starting because cannot binding with ipv6
+    sed -i 's/^bind 127.0.0.1 ::1/bind 127.0.0.1/g' /etc/redis/redis.conf ; \
     # Install screen manager
-    screen ; \
+    apt install -y screen ; \
     # Make screen default shell to bash
     echo "defshell -bash" > /root/.screenrc ; \
     # Clean retrieved package files and remove no longer needed packages
