@@ -11,6 +11,7 @@
 #   - Install networking tools (net-tools + wget + curl)
 #   - Install development tools (git + zip)
 #   - Install screen manager
+#   - Install nodejs and npm (helpful when using vue.js)
 #   - Install VIM editor with custom configuration file
 #   - Install LEMP Stack (Nginx + MariaDB + PHP) with PHP modules requires by Laravel
 #   - Install Redis server (caching & session server)
@@ -81,6 +82,8 @@ RUN \
     apt install -y redis-server ; \
     # Fix redis service not starting because cannot binding with ipv6
     sed -i 's/^bind 127.0.0.1 ::1/bind 127.0.0.1/g' /etc/redis/redis.conf ; \
+    # Install nodejs and npm
+    apt install -y nodejs npm ; \
     # Install screen manager
     apt install -y screen ; \
     # Make screen default shell to bash
