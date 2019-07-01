@@ -21,7 +21,7 @@ Build a custom Ubuntu image for Laravel development.
  - **host $** sudo docker-compose build
 
 ## How to run a container
-**host $** sudo docker run -it -p <host_port>:80 -v <host_laravel_dir>/:/var/www/html/laravel --restart unless-stopped --name ubuntu-laravel poundxi/ubuntu-laravel
+**host $** sudo docker run -it -p <host_port>:80 -v <host_laravel_dir>:/var/www/laravel --restart unless-stopped --name ubuntu-laravel poundxi/ubuntu-laravel
 
 ## How to detach from a container shell
 Press Ctrl+P and then Ctrl+Q
